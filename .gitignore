@@ -1,0 +1,14 @@
+# Secrets / local environment files (never commit real credentials)
+.env
+.env.*
+!.env.example
+
+# Dependencies & build artifacts (each sub-project also has its own .gitignore)
+node_modules/
+dist/
+.angular/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp

@@ -1,0 +1,22 @@
+# Bundler config
+/.bundle
+
+# Logs and temp files
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+/tmp/pids/*
+!/tmp/pids/.keep
+
+# Local uploads / Active Storage
+/storage/*
+!/storage/.keep
+
+# Rails master key (encrypted credentials) — never commit
+/config/master.key
+
+# Secrets / local environment (also covered by the repo-root .gitignore)
+.env
+.env.*
+!.env.example
