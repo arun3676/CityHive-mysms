@@ -55,4 +55,4 @@ I did all three of them.
 
 One honest note: the Twilio number is a trial toll-free number, so Twilio holds back real delivery until their toll-free verification is done. The full send → save → list → status flow works and every message gets a real Twilio id, it's only the final carrier delivery that's gated until that verification goes through.
 
-Live demo: (add the Vercel link here once it's deployed)
+Live demo: https://city-hive-mysms.vercel.app
