@@ -11,10 +11,8 @@ export interface User {
 export class AuthService {
   private http = inject(HttpClient);
 
-  /** The currently signed-in user, or null. */
   readonly currentUser = signal<User | null>(null);
 
-  /** Check the session on app start. */
   me(): Observable<{ user: User | null }> {
     return this.http
       .get<{ user: User | null }>('/api/me', { withCredentials: true })

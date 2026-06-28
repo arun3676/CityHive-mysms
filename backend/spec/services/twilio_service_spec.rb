@@ -5,7 +5,6 @@ RSpec.describe TwilioService do
   let(:client) { double("Twilio::REST::Client", messages: messages_resource) }
 
   before do
-    # Never hit the real Twilio API in tests.
     allow(Twilio::REST::Client).to receive(:new).and_return(client)
   end
 

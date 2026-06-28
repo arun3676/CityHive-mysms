@@ -1,15 +1,12 @@
 module Api
   class MessagesController < ApplicationController
-    # The Twilio webhook is a server-to-server POST — no logged-in user.
     skip_before_action :authenticate_user!, only: :status_callback, raise: false
     before_action :verify_twilio_signature, only: :status_callback, if: -> { Rails.env.production? }
 
-    # GET /api/messages — only the current user's messages.
     def index
       render json: Message.where(user_id: current_user.id).to_a
     end
 
-    # POST /api/messages  { message: { to:, body: } }
     def create
       message = Message.new(
         message_params.to_h.merge(
@@ -36,7 +33,6 @@ module Api
       end
     end
 
-    # POST /api/messages/status_callback  (Bonus 3) — Twilio delivery webhook.
     def status_callback
       message = Message.where(twilio_sid: params[:MessageSid]).first
       message&.update(

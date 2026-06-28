@@ -12,7 +12,6 @@
   </header>
 
   @if (!user()) {
-    <!-- ── Auth ──────────────────────────────────── -->
     <section class="panel auth-panel">
       <h2>{{ authMode() === 'login' ? 'Log in' : 'Create an account' }}</h2>
       <form (ngSubmit)="submitAuth()">
@@ -41,7 +40,6 @@
       </form>
     </section>
   } @else {
-    <!-- ── Messages ──────────────────────────────── -->
     <div class="panels">
       <section class="panel">
         <h2>New Message</h2>

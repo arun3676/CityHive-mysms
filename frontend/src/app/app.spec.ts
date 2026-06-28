@@ -21,18 +21,17 @@ describe('App', () => {
 
   it('checks the session on init and shows the login form when logged out', () => {
     const fixture = TestBed.createComponent(App);
-    fixture.detectChanges(); // ngOnInit -> auth.me()
+    fixture.detectChanges();
 
     const meReq = httpMock.expectOne('/api/me');
     expect(meReq.request.method).toBe('GET');
     meReq.flush({ user: null });
     fixture.detectChanges();
 
-    // No messages request while logged out.
     const h1: HTMLElement = fixture.nativeElement.querySelector('h1');
     expect(h1.textContent).toContain('MySMS Messenger');
-    const submitText = fixture.nativeElement.textContent;
-    expect(submitText).toContain('Log in');
+    const text = fixture.nativeElement.textContent;
+    expect(text).toContain('Log in');
   });
 
   it('loads messages when the session is already authenticated', () => {

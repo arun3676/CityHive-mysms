@@ -66,7 +66,7 @@ RSpec.describe "Api::Messages", type: :request do
     end
   end
 
-  describe "POST /api/messages/status_callback (Twilio webhook, no auth)" do
+  describe "POST /api/messages/status_callback" do
     it "updates status by MessageSid even when logged out" do
       delete "/api/logout"
       msg = Message.create!(to: "+1", body: "x", twilio_sid: "SMcb",

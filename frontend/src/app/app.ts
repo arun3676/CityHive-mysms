@@ -18,16 +18,13 @@ export class App implements OnInit {
 
   readonly maxLength = 250;
 
-  /** Signed-in user (signal from AuthService). */
   user = this.auth.currentUser;
 
-  // Auth form
   authUsername = '';
   authPassword = '';
   authMode = signal<'login' | 'signup'>('login');
   authError = signal<string | null>(null);
 
-  // Message form
   to = '';
   body = '';
   messages = signal<Message[]>([]);
@@ -35,7 +32,6 @@ export class App implements OnInit {
   error = signal<string | null>(null);
 
   constructor() {
-    // Poll for Bonus 3 delivery-status updates, but only while logged in.
     interval(8000)
       .pipe(takeUntilDestroyed())
       .subscribe(() => {
@@ -44,7 +40,6 @@ export class App implements OnInit {
   }
 
   ngOnInit(): void {
-    // Restore session on load; load messages if already signed in.
     this.auth.me().subscribe({
       next: () => {
         if (this.user()) this.loadMessages();
@@ -53,7 +48,6 @@ export class App implements OnInit {
     });
   }
 
-  // ── Auth ──────────────────────────────────────────────
   submitAuth(): void {
     const username = this.authUsername.trim();
     const password = this.authPassword;
@@ -93,7 +87,6 @@ export class App implements OnInit {
     });
   }
 
-  // ── Messages ──────────────────────────────────────────
   loadMessages(): void {
     this.messages$.list().subscribe({
       next: (msgs) => this.messages.set(msgs),

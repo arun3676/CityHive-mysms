@@ -1,14 +1,8 @@
-# Mongoid configuration.
-# The connection string lives in ENV['MONGODB_URI'] (loaded from .env in dev/test
-# by dotenv-rails; injected by the platform in production). The URI already names
-# the `mysms` database. For the test env we rewrite it to `mysms_test` so the suite
-# never touches development data.
 development:
   clients:
     default:
       uri: <%= ENV.fetch('MONGODB_URI') %>
       options:
-        # Fail fast (8s) instead of the 30s default if the cluster is unreachable.
         server_selection_timeout: 8
 
 test:
