@@ -1,6 +1,6 @@
 # MySMS Messenger
 
-My take home for City Hive. It's a small app to send SMS messages and look back at the ones you already sent. The texts actually go out through Twilio.
+It's a app to send SMS messages and look back at the ones you already sent. The texts actually go out through Twilio.
 
 ## What it does
 - sign up and log in with a username and password
@@ -11,8 +11,8 @@ My take home for City Hive. It's a small app to send SMS messages and look back 
 
 ## Stack
 - Frontend: Angular
-- Backend: Ruby on Rails (API only)
-- Database: MongoDB (through Mongoid)
+- Backend: Ruby on Rails
+- Database: MongoDB 
 - SMS: Twilio
 - Tests: RSpec for the backend, Vitest for the frontend
 
