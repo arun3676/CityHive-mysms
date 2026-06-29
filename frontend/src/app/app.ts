@@ -79,6 +79,8 @@ export class App implements OnInit {
   toggleMode(): void {
     this.authMode.set(this.authMode() === 'login' ? 'signup' : 'login');
     this.authError.set(null);
+    this.authUsername = '';
+    this.authPassword = '';
   }
 
   logout(): void {
